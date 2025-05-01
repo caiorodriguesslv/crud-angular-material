@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { MATERIAL_IMPORTS } from '../material.imports'; 
 import { FormsModule } from '@angular/forms'
+import { Client } from './client';
 
 @Component({
   selector: 'app-register',
@@ -11,4 +12,9 @@ import { FormsModule } from '@angular/forms'
 })
 export class RegisterComponent {
 
+  client: Client = Client.newClient();
+
+  save(){
+    console.log("Dados Cliente:", this.client);
+  }
 }
