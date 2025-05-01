@@ -1,1 +1,13 @@
-<button mat-flat-button>Basic</button>
+<mat-toolbar color="primary">
+  <span>Cadastro de Clientes</span>
+  <span class="spacer"></span>
+  <a routerLink="/register">
+    <mat-icon fontIcon="feed"> </mat-icon> 
+    Formulário
+  </a>
+  <a routerLink="/consultation">
+    <mat-icon fontIcon="search"> </mat-icon> 
+    Consulta
+  </a>
+</mat-toolbar>
+<router-outlet></router-outlet>

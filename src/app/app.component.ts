@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { MATERIAL_IMPORTS } from './material.imports'; // importa os módulos centralizados
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { MATERIAL_IMPORTS } from './material.imports'; 
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
+    RouterOutlet, RouterLink,
     MATERIAL_IMPORTS 
   ],
   templateUrl: './app.component.html',
