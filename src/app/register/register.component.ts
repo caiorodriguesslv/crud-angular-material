@@ -3,6 +3,7 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import { MATERIAL_IMPORTS } from '../material.imports'; 
 import { FormsModule } from '@angular/forms'
 import { Client } from './client';
+import { ClientService } from '../client.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,11 @@ export class RegisterComponent {
 
   client: Client = Client.newClient();
 
+  constructor(private Service: ClientService) {
+    
+  }
+
   save(){
-    console.log("Dados Cliente:", this.client);
+    this.Service.save(this.client);
   }
 }
