@@ -16,22 +16,29 @@ export class ClientService {
     localStorage.setItem(ClientService.REPO_CLIENTS, JSON.stringify(storage));
   }
 
-  searchClient(name: string) : Client[] {
-    return this.getStorage();
-  }
+  searchClient(nameSearch: string) : Client[] { 
+    const clients = this.getStorage();
+    
 
-  private getStorage() : Client[] {
-    const repositoryClients = localStorage.getItem(ClientService.REPO_CLIENTS);
-
-    if(repositoryClients) {
-      const clients : Client[] = JSON.parse(repositoryClients);
+    if (!nameSearch) {
       return clients;
     }
 
-    const clients : Client[] = [];
+    return clients.filter(client => 
+      client.nome?.toLowerCase().includes(nameSearch.toLowerCase())
+    );
+  }
+
+  private getStorage(): Client[] {
+    const repositoryClients = localStorage.getItem(ClientService.REPO_CLIENTS);
+
+    if (repositoryClients) {
+      const clients: Client[] = JSON.parse(repositoryClients);
+      return clients;
+    }
+
+    const clients: Client[] = [];
     localStorage.setItem(ClientService.REPO_CLIENTS, JSON.stringify(clients));
     return clients;
-
-
   }
 }

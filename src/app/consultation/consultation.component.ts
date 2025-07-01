@@ -14,6 +14,7 @@ import { Client } from '../register/client';
 })
 export class ConsultationComponent implements OnInit {
 
+  searchName: string = '';
   listClients: Client[] = [];
   columnsTable: string[] = ['id', 'nome', 'cpf', 'dataNascimento', 'email'];
 
@@ -26,7 +27,8 @@ export class ConsultationComponent implements OnInit {
     this.listClients = this.service.searchClient('');
   }
 
-  
-
+  searchClient(event: any) {
+    this.listClients = this.service.searchClient(this.searchName)
+  }
 
 }
